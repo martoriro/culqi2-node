@@ -1,8 +1,8 @@
 {
   "name": "culqi2-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Culqi API v2 Node.js Wrapper",
-  "main": "/lib/culqi.js",
+  "main": "lib/culqi.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/martoriro/culqi2-node.git"

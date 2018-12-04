@@ -19,7 +19,7 @@ const culqi = new Culqi(commerceKey);
 culqi.getCards();
 ```
 
-`**commerceKey:** Private key given by Culqi`
+`commerceKey: Private key given by Culqi`
 
 ### Currently available methods
 
