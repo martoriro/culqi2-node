@@ -14,7 +14,7 @@ $ npm install culqi2-node
 ### Usage
 ```javascript
 const Culqi = require('culqi2-node');
-const culqi = new Culqi(commerceCode, commerceKey);
+const culqi = new Culqi(commerceKey);
 
 culqi.getCards();
 ```
@@ -30,6 +30,10 @@ culqi.getCards();
 * getCustomers()
 * updateCustomer()
 * deleteCustomer()
+
+**Tokens**
+
+* createToken()
 
 **Cards**
 

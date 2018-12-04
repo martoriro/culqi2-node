@@ -10,26 +10,16 @@ const culqi = new Culqi(Settings.commerceKey);
 
 describe('Customers', () => {
     var customerId = '';
-
     describe('createCustomer', (done) => {
-        it('Should delete previous customer', (done) => {
-            culqi.deleteCustomer({id: 'cus_test_crGCdb8OGw1vJucV'}).then((response) => {
-                response.statusCode.should.equal(200);
-                done();
-            }).catch((error) => {
-                done(error.message);
-            });
-        })
-
         it('Should create customer', (done) => {
             culqi.createCustomer({
-                'first_name':   "Juan",
-                'last_name':    "Godoy",
-                'email':        "juan@godoy.com",
-                'address':      "La Calle De Juan 312",
-                'address_city': "Ciudad de Juanes",
-                'country_code': "PE",
-                'phone_number': "12345678"
+                'first_name':   'Juan',
+                'last_name':    'Godoy',
+                'email':        'juan@godoy.com',
+                'address':      'La Calle De Juan 312',
+                'address_city': 'Ciudad de Juanes',
+                'country_code': 'PE',
+                'phone_number': '12345678'
             }).then((response) => {
                 response.statusCode.should.equal(201);
                 customerId = response.body.id;
