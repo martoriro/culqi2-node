@@ -1,0 +1,30 @@
+{
+  "name": "culqi2-node",
+  "version": "1.0.0",
+  "description": "Culqi API v2 Node.js Wrapper",
+  "main": "/lib/culqi.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martoriro/culqi2-node.git"
+  },
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  },
+  "keywords": [
+    "culqi",
+    "payment",
+    "peru",
+    "node",
+    "nodejs",
+    "culqi2"
+  ],
+  "author": "Martín González Sotomayor <martinsgonzalezs@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
