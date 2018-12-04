@@ -1,8 +1,10 @@
-<img src="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_120,w_120,f_auto,b_white,q_auto:eco/v1502140249/a3l1su1psxnfhzs5hcf0.jpg" alt="culqi_logo">
-
-## Culqi2-node
+## Culqi2-node <img src="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_120,w_120,f_auto,b_white,q_auto:eco/v1502140249/a3l1su1psxnfhzs5hcf0.jpg" alt="culqi_logo">
 
 <a href="https://www.culqi.com/">Culqi</a> API v2 wrapper for Node.js
+
+[![Build Status](https://travis-ci.org/martoriro/culqi2-node.svg?branch=master)](https://travis-ci.org/martoriro/culqi2-node)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![npm](https://img.shields.io/npm/v/npm.svg)]()
 
 ### Installing
 ```sh
