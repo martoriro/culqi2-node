@@ -1,6 +1,6 @@
 {
   "name": "culqi2-node",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Culqi API v2 Node.js Wrapper",
   "main": "lib/culqi.js",
   "repository": {
@@ -8,7 +8,8 @@
     "url": "https://github.com/martoriro/culqi2-node.git"
   },
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "keywords": [
     "culqi",

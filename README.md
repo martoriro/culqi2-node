@@ -1,5 +1,6 @@
 ## Culqi2-node
 
+[![npm version](https://badge.fury.io/js/culqi2-node.svg)](https://badge.fury.io/js/culqi2-node)
 [![Build Status](https://travis-ci.org/martoriro/culqi2-node.svg?branch=master)](https://travis-ci.org/martoriro/culqi2-node)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/npm.svg)]()
