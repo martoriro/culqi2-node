@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/culqi2-node.svg)](https://badge.fury.io/js/culqi2-node)
 [![Build Status](https://travis-ci.org/martoriro/culqi2-node.svg?branch=master)](https://travis-ci.org/martoriro/culqi2-node)
+[![Coverage Status](https://coveralls.io/repos/github/martoriro/culqi2-node/badge.svg?branch=master)](https://coveralls.io/github/martoriro/culqi2-node?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/npm.svg)]()
 
