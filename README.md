@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/npm.svg)]()
 
-<a href="https://www.culqi.com/">Culqi</a> API v2 wrapper for Node.js
+<a href="https://www.culqi.com/">Culqi</a> API v2 wrapper for Node.js based in <a href="https://www.npmjs.com/package/culqi-node">Culqi API v1.2 wrapper</a> by <a href="https://github.com/giwiro">giwiro</a>
 
 ### Installing
 ```sh
