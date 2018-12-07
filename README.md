@@ -16,12 +16,13 @@ $ npm install culqi2-node
 ### Usage
 ```javascript
 const Culqi = require('culqi2-node');
-const culqi = new Culqi(commerceKey);
 
+const culqi = new Culqi(privateKey, publicKey);
 culqi.getCards();
 ```
 
-`commerceKey: Private key given by Culqi`
+`privateKey: Private key given by Culqi`
+`publicKey: Public key given by Culqi`
 
 ### Currently available methods
 
@@ -35,7 +36,7 @@ culqi.getCards();
 
 **Tokens**
 
-* createToken()
+* createToken()*
 
 **Cards**
 
@@ -59,6 +60,8 @@ culqi.getCards();
 * getEvents()
 
 For more info about method attributes visit <a href="https://www.culqi.com/api/">Culqi API Docs</a>. You could also see the tests on `test` folder.
+
+*Token creation via API is not recommended and requires previous approval by Culqi, as noted <a href="https://www.culqi.com/api/#/tokens">here</a>.
 
 ### Tests
 

@@ -3,10 +3,11 @@ const Chai = require('chai');
 const Should = Chai.should();
 
 const Settings = {    
-    commerceKey: process.env.COMMERCE_KEY
+    privateKey: process.env.PRIVATE_KEY,
+    publicKey: process.env.PUBLIC_KEY
 };
 
-const culqi = new Culqi(Settings.commerceKey);
+const culqi = new Culqi(Settings.privateKey, Settings.publicKey);
 
 describe('Customers', () => {
     var customerId = '';
@@ -15,7 +16,7 @@ describe('Customers', () => {
             culqi.createCustomer({
                 'first_name':   'Juan',
                 'last_name':    'Godoy',
-                'email':        'juan@godoy.com',
+                'email':        'jgodoy2@godoy.com',
                 'address':      'La Calle De Juan 312',
                 'address_city': 'Ciudad de Juanes',
                 'country_code': 'PE',
@@ -23,9 +24,9 @@ describe('Customers', () => {
             }).then((response) => {
                 response.statusCode.should.equal(201);
                 customerId = response.body.id;
-                done();
+                done(); 
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -33,12 +34,12 @@ describe('Customers', () => {
     describe('getCustomer', (done) => {
         it('Should get created customer', (done) => {
             culqi.getCustomer({
-                id: customerId
+                'id': customerId
             }).then((response) => {
                 response.statusCode.should.equal(200);
                 done();  
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -49,7 +50,7 @@ describe('Customers', () => {
                 response.statusCode.should.equal(200);
                 done();  
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -60,16 +61,16 @@ describe('Customers', () => {
                 'id':           customerId,
                 'first_name':   "John",
                 'last_name':    "Godeer",
-                'email':        "john@godeer.com",
+                'email':        "jgodeer@godeer.com",
                 'address':      "John's Street 312",
                 'address_city': "City of Juanes",
-                'country_code': "USA",
+                'country_code': "US",
                 'phone_number': "87654321"
             }).then((response) => {
                 response.statusCode.should.equal(200);
                 done();
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -82,7 +83,7 @@ describe('Customers', () => {
                 response.statusCode.should.equal(200);
                 done();
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });

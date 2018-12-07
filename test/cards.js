@@ -3,22 +3,41 @@ const Chai = require('chai');
 const Should = Chai.should();
 
 const Settings = {    
-    commerceKey: process.env.COMMERCE_KEY
+    privateKey: process.env.PRIVATE_KEY,
+    publicKey: process.env.PUBLIC_KEY
 };
 
-const culqi = new Culqi(Settings.commerceKey);
+const culqi = new Culqi(Settings.privateKey, Settings.publicKey);
 
 describe('Cards', () => {
     var tokenId = '';
     var customerId = '';
     var cardId = '';
 
+    describe('clean', (done) => {
+        it('Should delete all customers', (done) => {
+            culqi.getCustomers().then(async (response) => {
+                response.statusCode.should.equal(200);
+                for(let i = 0; i < response.body.data.length; i++){
+                    await culqi.deleteCustomer({
+                        'id': response.body.data[i].id
+                    }).catch((error) => {
+                        done(error);
+                    });
+                }
+                done();
+            }).catch((error) => {
+                done(error);
+            });
+        });
+    });
+
     describe('createCard', (done) => {
         it('Should create customer', (done) => {
             culqi.createCustomer({
                 'first_name':   'Juan',
                 'last_name':    'Godoy',
-                'email':        'juan2@godoy.com',
+                'email':        'test@godoy.com',
                 'address':      'La Calle De Juan 312',
                 'address_city': 'Ciudad de Juanes',
                 'country_code': 'PE',
@@ -28,36 +47,46 @@ describe('Cards', () => {
                 customerId = response.body.id;
                 done();
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
 
         it('Should create token', (done) => {
             culqi.createToken({
-                'card_number':      '4444333322221111',
+                'card_number':      '4111111111111111',
                 'cvv':              '123',
                 'expiration_month':  '09',
-                'expiration_year':  '2020',
-                'email':            'juan@godoy.com'
+                'expiration_year':   '2020',
+                'email':            'jgodoy@godoy.com'
             }).then((response) => {
                 response.statusCode.should.equal(201);
                 tokenId = response.body.id;
                 done();
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
 
         it('Should create card', (done) => {
-            culqi.createCard({
-                'customer_id': customerId,
-                'token_id': tokenId
-            }).then((response) => {
-                response.statusCode.should.equal(201);
-                cardId = response.body.id;
-                done();
+            culqi.getCards().then((response) => {
+                response.statusCode.should.equal(200);
+                if(response.body.data.length > 0){
+                    cardId = response.body.data[0].id;
+                    done();
+                }else{
+                    culqi.createCard({
+                        'customer_id': customerId,
+                        'token_id': tokenId
+                    }).then((creationResponse) => {
+                        creationResponse.statusCode.should.equal(201);
+                        cardId = response.body.id;
+                        done();
+                    }).catch((error) => {
+                        done(error);
+                    });
+                }
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -65,12 +94,12 @@ describe('Cards', () => {
     describe('getCard', (done) => {
         it('Should get created card', (done) => {
             culqi.getCard({
-                id: cardId
+                'id': cardId
             }).then((response) => {
                 response.statusCode.should.equal(200);
                 done();  
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -81,7 +110,7 @@ describe('Cards', () => {
                 response.statusCode.should.equal(200);
                 done();  
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -93,13 +122,13 @@ describe('Cards', () => {
                 'cvv':              '123',
                 'expiration_month':  '09',
                 'expiration_year':  '2020',
-                'email':            'juan@godoy.com'
+                'email':            'jgodoy@godoy.com'
             }).then((response) => {
                 response.statusCode.should.equal(201);
-                token = response.body.id;
+                tokenId = response.body.id;
                 done();
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
 
@@ -111,7 +140,7 @@ describe('Cards', () => {
                 response.statusCode.should.equal(200);
                 done();
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
     });
@@ -124,7 +153,7 @@ describe('Cards', () => {
                 response.statusCode.should.equal(200);
                 done();
             }).catch((error) => {
-                done(error.message);
+                done(error);
             });
         });
 
@@ -135,8 +164,9 @@ describe('Cards', () => {
                 response.statusCode.should.equal(200);
                 done()
             }).catch((error) => {
-                done(error.message);
+                done(error);
             })
         });
     });
+
 });
