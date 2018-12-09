@@ -93,7 +93,6 @@ describe('Cards', () => {
 
     describe('getCard', (done) => {
         it('Should get created card', (done) => {
-            console.log("CARD ID: " + cardId);
             culqi.getCard({
                 'id': cardId
             }).then((response) => {

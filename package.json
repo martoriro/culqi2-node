@@ -8,8 +8,8 @@
     "url": "https://github.com/martoriro/culqi2-node.git"
   },
   "scripts": {
-    "test": "mocha --timeout 20000",
-    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+    "test": "mocha --timeout 25000",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- --timeout 25000 -R spec test/*"
   },
   "keywords": [
     "culqi",
