@@ -73,13 +73,13 @@ describe('Cards', () => {
                 if(response.body.data.length > 0){
                     cardId = response.body.data[0].id;
                     done();
-                }else{
+                }else{                    
                     culqi.createCard({
                         'customer_id': customerId,
                         'token_id': tokenId
                     }).then((creationResponse) => {
                         creationResponse.statusCode.should.equal(201);
-                        cardId = response.body.id;
+                        cardId = creationResponse.body.id;
                         done();
                     }).catch((error) => {
                         done(error);
@@ -93,6 +93,7 @@ describe('Cards', () => {
 
     describe('getCard', (done) => {
         it('Should get created card', (done) => {
+            console.log("CARD ID: " + cardId);
             culqi.getCard({
                 'id': cardId
             }).then((response) => {
